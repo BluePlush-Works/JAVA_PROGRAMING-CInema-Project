@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h1>Cinema</h1>
+<h2>Lista de Utilizadores:</h2>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Contato</th>
+        <th>Email</th>
+        <th>Senha</th>
+        <th>Perfil</th>
+    </tr>
+    <tr th:each="p:${lista}">
+        <td th:text="${p.nome}"></td>
+        <td th:text="${p.contato}"></td>
+        <td th:text="${p.email}"></td>
+        <td th:text="${p.senha}"></td>
+        <td th:text="${p.perfil}"></td>
+    </tr>
+</table>
+
+<section><h2>Novo Utilizador</h2>
+    <form action="/utilizadores" method="post">
+        <input type="text" name="nome" placeholder="Nome Completo">
+        <input type="text" name="contato" placeholder="contato">
+        <input type="text" name="email" placeholder="email">
+        <input type="password" name="senha" placeholder="senha">
+        <input type="text" name="perfil" placeholder="perfil">
+        <button type="submit">Adicionar</button>
+    </form>
+</section>
+</body>
+</html>

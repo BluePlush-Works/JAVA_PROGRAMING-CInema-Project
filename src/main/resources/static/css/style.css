@@ -68,3 +68,10 @@ button {
 button:hover {
     background-color: #ffea00;
 }
+
+.destacado{
+
+    color: #012169;
+    font-weight: bold;
+    text-transform: uppercase;
+}

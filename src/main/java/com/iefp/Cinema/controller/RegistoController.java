@@ -17,13 +17,13 @@ public class RegistoController {
     @GetMapping("/registo")
     public String ListaUtilizadores(Model model) {
         model.addAttribute("lista", utilizadores);
-        return "/utilizadores";
+        return "utilizadores";
     }
 
     @PostMapping("/registo")
     public String adicionarUtilizador(@RequestParam String nome, @RequestParam String contato, @RequestParam String email, @RequestParam String senha, @RequestParam String perfil) {
         Utilizador utilizador = new Utilizador(nome, contato, email, senha, perfil);
         utilizadores.add(utilizador);
-        return "redirect:/utilizadores";
+        return "redirect:/registo";
     }
 }

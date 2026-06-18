@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <h1>Cinema</h1>
@@ -12,14 +13,12 @@
         <th>Nome</th>
         <th>Contato</th>
         <th>Email</th>
-        <th>Senha</th>
         <th>Perfil</th>
     </tr>
     <tr th:each="p:${lista}">
         <td th:text="${p.nome}"></td>
         <td th:text="${p.contato}"></td>
         <td th:text="${p.email}"></td>
-        <td th:text="${p.senha}"></td>
         <td th:text="${p.perfil}"></td>
     </tr>
 </table>
@@ -28,11 +27,16 @@
     <form action="/utilizadores" method="post">
         <input type="text" name="nome" placeholder="Nome Completo">
         <input type="text" name="contato" placeholder="contato">
-        <input type="text" name="email" placeholder="email">
+        <input type="email" name="email" placeholder="email">
         <input type="password" name="senha" placeholder="senha">
         <input type="text" name="perfil" placeholder="perfil">
-        <button type="submit">Adicionar</button>
+        <button type="submit" onclick="mostrarMensagem()">Adicionar</button>
     </form>
+    <script>
+        function mostrarMensagem(){
+            alert("Registo realizado com sucesso!")
+        }
+    </script>
 </section>
 </body>
 </html>

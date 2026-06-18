@@ -8,7 +8,7 @@
 <body>
 <h1>Cinema</h1>
 <h2>Lista de Utilizadores:</h2>
-<table>
+<table id="tabelaRegisto">
     <tr>
         <th>Nome</th>
         <th>Contato</th>
@@ -16,7 +16,7 @@
         <th>Perfil</th>
     </tr>
     <tr th:each="p:${lista}">
-        <td th:text="${p.nome}"></td>
+        <td class="nome-registo" th:text="${p.nome}"></td>
         <td th:text="${p.contato}"></td>
         <td th:text="${p.email}"></td>
         <td th:text="${p.perfil}"></td>
@@ -24,7 +24,7 @@
 </table>
 
 <section><h2>Novo Utilizador</h2>
-    <form action="/utilizadores" method="post">
+    <form action="/registo" method="post">
         <input type="text" name="nome" placeholder="Nome Completo">
         <input type="text" name="contato" placeholder="contato">
         <input type="email" name="email" placeholder="email">
@@ -32,11 +32,9 @@
         <input type="text" name="perfil" placeholder="perfil">
         <button type="submit" onclick="mostrarMensagem()">Adicionar</button>
     </form>
-    <script>
-        function mostrarMensagem(){
-            alert("Registo realizado com sucesso!")
-        }
-    </script>
 </section>
+<button type="button" onclick="destacarNomes()">Destacar Nomes</button>
+<button type="button" onclick="esconderMostrarTabela()">Mostrar Tabela</button>
+<script src="/js/script.js"></script>
 </body>
 </html>

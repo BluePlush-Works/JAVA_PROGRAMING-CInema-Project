@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<main>
+    <input type="hidden" id="tipoPagina" th:value="${tipo}">
+
+    <header>
+        <h1 id="tituloListagem"> Listar </h1>
+        <p id="subtituloListagem"> Registos da clínica médica</p>
+    </header>
+    <nav class="menu">
+        <a href="/registo">Novo Utilizador</a>
+
+        <a href="/clientes">Clientes</a>
+        <a href="/funcionarios">Funcionários</a>
+        <a href="/utilizadores">Utilizadores</a>
+
+    </nav>
+    <section>
+        <table id="tabelaRegisto">
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th th:if="${tipo=='UTILIZADOR'}">Perfil</th>
+                <th th:if="${tipo=='CLIENTES'}">NIF</th>
+                <th th:if="${tipo=='FUNCIONARIOS'}">Número de Funcionário</th>
+                <th th:if="${tipo=='FUNCIONARIOS'}">Cargo</th>
+                <th th:if="${tipo=='FUNCIONARIOS'}">Turno</th>
+
+            </tr>
+
+            <tr th:each="item:${lista}">
+                <td class="nome-registo"
+                    th:text="${tipo=='UTILIZADOR'} ? ${item.nome}: ${item.utilizador.nome}"
+                ></td>
+
+                <td th:text="${tipo=='UTILIZADOR'} ? ${item.email}: ${item.utilizador.email}"
+                ></td>
+
+                <td th:text="${tipo=='UTILIZADOR'} ? ${item.contato}: ${item.utilizador.contato}"
+                ></td>
+
+                <td th:if="${tipo=='UTILIZADOR'}"
+                    th:text="${item.perfil}">
+                </td>
+
+            <td th:if="${tipo=='CLIENTES'}"
+                    th:text="${item.nif}">
+                </td>
+
+                <td th:if="${tipo=='FUNCIONARIOS'}"
+                    th:text="${item.nfuncionario}">
+                </td>
+
+                <td th:if="${tipo=='FUNCIONARIOS'}"
+                    th:text="${item.turno}">
+                </td>
+
+                <td th:if="${tipo=='FUNCIONARIOS'}"
+                    th:text="${item.cargo}">
+                </td>
+
+
+            </tr>
+        </table>
+
+        <div class="botoes">
+            <button type="button" onclick="destacarNomes()">Destacar nomes</button>
+            <button type="button" onclick="esconderMostrarTabela()">Esconder/Mostrar tabela</button>
+        </div>
+
+    </section>
+</main>
+<script src="/js/script.js"></script>
+</body>
+</html>
+

@@ -1,38 +1,28 @@
 package com.iefp.Cinema.model;
 
-public class Utilizador {
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Utilizador {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+
+    private Long id;
     private String nome;
     private String contato;
+
+    @Column(unique = true)
     private String email;
     private String senha;
     private String perfil; //Funcionario-Utilizador
 
-    public Utilizador(String nome, String contato, String email, String senha, String perfil) {
-        this.nome = nome;
-        this.contato = contato;
-        this.email = email;
-        this.senha = senha;
-        this.perfil = perfil;
-    }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getContato() {
-        return contato;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public String getPerfil() {
-        return perfil;
-    }
 }

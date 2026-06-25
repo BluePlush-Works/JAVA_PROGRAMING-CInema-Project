@@ -60,11 +60,74 @@ button {
     color: #800000;
     border: none;
     padding: 12px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto;
 }
 
 button:hover {
     background-color: #ffea00;
+}
+
+/* Tema Cliente */
+.tema-cliente .cabecalho {
+    background-color: #d9eaf7;
+    border-left-color: #0b5394;
+}
+
+.tema-cliente .cabecalho h1,
+.tema-cliente th {
+    color: #0b5394;
+}
+
+.tema-cliente th {
+    background-color: #d9eaf7;
+}
+
+.tema-cliente .menu a,
+.tema-cliente button {
+    background-color: #0b5394;
+}
+
+/* Tema Médico */
+.tema-funcionario .cabecalho {
+    background-color: #d9ead3;
+    border-left-color: #38761d;
+}
+
+.tema-funcionario .cabecalho h1,
+.tema-funcionario th {
+    color: #38761d;
+}
+
+.tema-funcionario th {
+    background-color: #d9ead3;
+}
+
+.tema-funcionario .menu a,
+.tema-funcionario button {
+    background-color: #38761d;
+}
+
+/* Tema Utilizador */
+.tema-utilizador .cabecalho {
+    background-color: #eeeeee;
+    border-left-color: #444444;
+}
+
+.tema-utilizador .cabecalho h1,
+.tema-utilizador th {
+    color: #444444;
+}
+
+.tema-utilizador th {
+    background-color: #eeeeee;
+}
+
+.tema-utilizador .menu a,
+.tema-utilizador button {
+    background-color: #444444;
 }

@@ -1,14 +1,28 @@
 package com.iefp.Cinema.model;
 
-public class Cliente extends Utilizador {
-    private Integer nif;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    public Cliente(String nome, String contato, String email, String senha, String perfil, Integer nif) {
-        super(nome, contato, email, senha, perfil);
-        this.nif = nif;
-    }
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 
-    public Integer getNif() {
-        return nif;
-    }
+public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nif;
+
+
+    //Composição
+
+    @OneToOne
+    @JoinColumn(name = "utilizador_id", unique = true)
+    private Utilizador utilizador;
 }
+
+
+

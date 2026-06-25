@@ -1,14 +1,32 @@
 package com.iefp.Cinema.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
-public class Funcionario extends Utilizador {
-    public Funcionario(String nome, String contato, String email, String senha, String perfil, Integer nFunc, LocalDateTime turno) {
-        super(nome, contato, email, senha, perfil);
-        this.nFunc = nFunc;
-        this.turno = turno;
-    }
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
-    private Integer nFunc;
-    private LocalDateTime turno;
+public class Funcionario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nfuncionario;
+    private String cargo;
+    private String turno;
+
+
+// Conposição
+
+@OneToOne
+@JoinColumn(name = "utilizador_id", unique = true)
+private Utilizador utilizador;
+
 }
+
